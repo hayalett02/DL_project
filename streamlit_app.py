@@ -43,7 +43,7 @@ class_names = [
 # model yükle
 @st.cache_resource
 def load_model():
-    return keras.models.load_model("fashion_mnist_cnn_model.h5") #keras.models.load_model("fashion_mnist_cnn_model.keras")
+    return keras.models.load_model("fashion_mnist_cnn_model.h5", compile=False) #keras.models.load_model("fashion_mnist_cnn_model.keras")
 
 model = load_model() # cnn modeli bunun içerisinde
 
