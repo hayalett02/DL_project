@@ -21,7 +21,6 @@ Kurulumlar:
 import streamlit as st
 import numpy as np
 import tensorflow as tf
-from tensorflow import keras
 from PIL import Image
 
 # =========================
@@ -43,9 +42,9 @@ class_names = [
 # model yükle
 @st.cache_resource
 def load_model():
-    return keras.models.load_model("fashion_mnist_cnn_model.keras")
+    return tf.keras.models.load_model("fashion_mnist_cnn_model.h5", compile=False)  # keras.models.load_model("fashion_mnist_cnn_model.keras")
 
-model = load_model() # cnn modeli bunun içerisinde
+model = load_model()  # cnn modeli bunun içerisinde
 
 # ui
 st.title("Fashion MNIST CNN Tahmin Arayüzü")
