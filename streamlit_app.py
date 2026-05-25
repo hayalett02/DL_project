@@ -1,23 +1,3 @@
-"""
-Fashion MNIST CNN Model Streamlit Arayüzü
-
-Amaç:
-    Eğitilmiş CNN modelini kullanarak kullanıcıların yüklediği kıyafet görüntülerini
-    sınıflandıran bir web arayüzü oluşturmak
-
-Veri: internetten indirelim
-
-Plan program:
-    1. modeli yüklemek
-    2. dosya yükleme arayüzü
-    3. görüntü ön işleme
-    4. tahmin
-    5. sonuçların görselleştirilmesi
-
-Kurulumlar:
-    pip install streamlit pillow
-"""
-
 import streamlit as st
 import numpy as np
 import tensorflow as tf
@@ -42,7 +22,7 @@ class_names = [
 # model yükle
 @st.cache_resource
 def load_model():
-    return tf.keras.models.load_model("fashion_mnist_cnn_model.keras", compile=False)  # keras.models.load_model("fashion_mnist_cnn_model.keras")
+    return tf.keras.models.load_model("fashion_mnist_cnn_model.keras", compile=False)
 
 model = load_model()  # cnn modeli bunun içerisinde
 
