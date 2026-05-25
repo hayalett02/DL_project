@@ -20,6 +20,10 @@ class_names = [
 ]
 
 # model yükle
+import keras
+st.write(f"Sunucu TF Sürümü: {tf.__version__}")
+st.write(f"Sunucu Keras Sürümü: {keras.__version__}")
+
 @st.cache_resource
 def load_model():
     return tf.keras.models.load_model("fashion_mnist_cnn_model.keras", compile=False)
