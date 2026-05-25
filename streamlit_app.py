@@ -19,14 +19,25 @@ class_names = [
     "Ankle boot"
 ]
 
-# model yükle
-import keras
-st.write(f"Sunucu TF Sürümü: {tf.__version__}")
-st.write(f"Sunucu Keras Sürümü: {keras.__version__}")
+# Model mimarisini kodla tanımla (Versiyon uyumsuzluklarını önlemek için en güvenli yöntem)
+def create_model():
+    model = tf.keras.Sequential([
+        tf.keras.layers.Conv2D(32, (3,3), activation="relu", input_shape=(28, 28, 1)),
+        tf.keras.layers.MaxPooling2D(),
+        tf.keras.layers.Conv2D(64, (3,3), activation="relu"),
+        tf.keras.layers.MaxPooling2D(),
+        tf.keras.layers.Flatten(),
+        tf.keras.layers.Dense(128, activation="relu"),
+        tf.keras.layers.Dense(10, activation="softmax")
+    ])
+    return model
 
+# model yükle (Sadece ağırlıkları yükler)
 @st.cache_resource
 def load_model():
-    return tf.keras.models.load_model("fashion_mnist_cnn_model.keras", compile=False)
+    model = create_model()
+    model.load_weights("fashion_mnist_cnn_weights.weights.h5")
+    return model
 
 model = load_model()  # cnn modeli bunun içerisinde
 

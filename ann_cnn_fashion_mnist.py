@@ -107,4 +107,5 @@ cnn_test_acc:  0.8902999758720398
 """
 
 cnn_model.save("fashion_mnist_cnn_model.keras")
+cnn_model.save_weights("fashion_mnist_cnn_weights.weights.h5")
 #cnn_model.save("fashion_mnist_cnn_model.h5")
