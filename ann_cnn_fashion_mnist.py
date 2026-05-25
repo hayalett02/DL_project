@@ -16,6 +16,7 @@ Plan program:
     5. Sonuçları karşılaştırma
     6. Grafiksel olarak değerlendir ve CNN modelini kaydet    
 """
+
 import numpy as np
 import matplotlib.pyplot as plt
 import tensorflow as tf
@@ -106,3 +107,4 @@ cnn_test_acc:  0.8902999758720398
 """
 
 cnn_model.save("fashion_mnist_cnn_model.keras")
+#cnn_model.save("fashion_mnist_cnn_model.h5")
